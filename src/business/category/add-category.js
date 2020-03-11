@@ -8,9 +8,16 @@ module.exports = function makeAddCategory({ categoryDB }) {
       if (exists) {
         return exists
       }
+
+      const existSubCategory = await categoryDB.findByHash({ hash: category.getHash() })
+      if (exists) {
+        return exists
+      }
+      
       return categoryDB.insert({
         id : category.getId(),
         name : category.getName(),
+        hash : category.getHash(),
         createdOn : category.getCreatedOn(),
         updatedOn : category.getUpdatedOn(),
         createdBy : category.getCreatedBy(),

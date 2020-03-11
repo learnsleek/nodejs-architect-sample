@@ -3,7 +3,7 @@ module.exports = function buildMakeCategory ({Id, md5}){
       id = Id.makeId(),
       name,
       createdOn = Date.now(),
-      parentCategoryId,
+      parentCategoryName,
       updatedOn = Date.now(),
       createdBy,
       updatedBy,
@@ -13,8 +13,8 @@ module.exports = function buildMakeCategory ({Id, md5}){
         throw new Error('Category must have a valid id.')
     }
 
-    if (name.length < 2) {
-        throw new Error("Name must be longer than 2 characters.")
+    if (name.length < 3) {
+        throw new Error("Name must be longer than 3 characters.")
     }
     let hash;
 
@@ -24,7 +24,7 @@ module.exports = function buildMakeCategory ({Id, md5}){
         getHash: () => hash || (hash = makeHash()),
         getCreatedOn: () => createdOn,
         getUpdatedOn: () => updatedOn,
-        getParentCategoryId: () => parentCategoryId,
+        getParentCategoryName: () => parentCategoryName,
         getCreatedBy: () => createdBy,
         getUpdatedBy: () => updatedBy,
         getComments : () => comments

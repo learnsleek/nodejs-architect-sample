@@ -2,8 +2,8 @@ const makeCategoryDb =  require('./category-db')
 const mongodb =  require( 'mongodb')
 
 const MongoClient = mongodb.MongoClient
-const url = process.env.DM_CATEGORY_DB_URL
-const dbName = process.env.DM_CATEGORY_DB_NAME
+const url = process.env.LS_DB_URL
+const dbName = process.env.LS_DB_NAME
 const client = new MongoClient(url, { useNewUrlParser: true })
 
 const makeDb =  async function () {
